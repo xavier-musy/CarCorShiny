@@ -1,0 +1,40 @@
+Motor Trend Correlation Matrix Pitch
+========================================================
+author: Xavier Musy
+date: 2/22/2015
+
+Correlated Variables
+========================================================
+
+Variable correlation is important in inferance and predictions:
+
+- To better understand the data and gain intuition
+- For identifying counfounding variables
+- For feature reduction
+
+
+Motor Trend Car Road Tests Data Set
+========================================================
+
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+The data contains 32 observations on 11 variables.  Many of the variables are correlated...
+
+Correlated Variables
+========================================================
+
+```{r echo=FALSE}
+data(mtcars)
+library(corrplot)
+corrplot(cor(mtcars), type="lower", order="hclust", tl.cex = 0.6, tl.col="black", tl.srt = 50)
+```
+
+Introducing Motor Trend Correlation Matrix
+========================================================
+The Motor Trend Correlation Matrix app lets you easily explore correlation between variables.  For example mpg and cylinders:
+```{r echo=FALSE}
+library(PerformanceAnalytics)
+data(mtcars)
+chart.Correlation(mtcars[, c("mpg","cyl")])
+```
+
